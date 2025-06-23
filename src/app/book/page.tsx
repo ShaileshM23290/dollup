@@ -311,7 +311,7 @@ export default function BookPage() {
                           <p className="text-[#6b6b6b] mb-4">{service.description}</p>
                           
                           <div className="flex items-center justify-between mb-4">
-                            <span className="text-2xl font-bold text-gradient">${service.price}</span>
+                            <span className="text-2xl font-bold text-gradient">₹{service.price}</span>
                             <span className="text-sm text-[#6b6b6b]">{service.duration}</span>
                           </div>
                           
@@ -351,7 +351,7 @@ export default function BookPage() {
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-medium text-[#2c2c2c]">{addOn.name}</span>
-                            <span className="text-[#d4a574] font-semibold">+${addOn.price}</span>
+                            <span className="text-[#d4a574] font-semibold">+₹{addOn.price}</span>
                           </div>
                         </div>
                       );
@@ -363,7 +363,7 @@ export default function BookPage() {
               {bookingData.service && (
                 <div className="flex justify-between items-center">
                   <div className="text-2xl font-bold text-[#2c2c2c]">
-                    Total: <span className="text-gradient">${calculateTotal()}</span>
+                    Total: <span className="text-gradient">₹{calculateTotal()}</span>
                   </div>
                   <button onClick={nextStep} className="btn-primary inline-flex items-center space-x-2">
                     <span>Continue</span>
@@ -655,7 +655,7 @@ export default function BookPage() {
                           return (
                             <div key={addOnId} className="flex justify-between text-sm">
                               <span className="text-[#6b6b6b]">• {addOn?.name}</span>
-                              <span className="text-[#2c2c2c]">+${addOn?.price}</span>
+                              <span className="text-[#2c2c2c]">+₹{addOn?.price}</span>
                             </div>
                           );
                         })}
@@ -665,7 +665,7 @@ export default function BookPage() {
                     <div className="border-t border-[#e8d5b7] pt-4">
                       <div className="flex justify-between text-xl font-bold">
                         <span className="text-[#2c2c2c]">Total:</span>
-                        <span className="text-gradient">${calculateTotal()}</span>
+                        <span className="text-gradient">₹{calculateTotal()}</span>
                       </div>
                     </div>
                   </div>
@@ -715,7 +715,7 @@ export default function BookPage() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-[#6b6b6b]">Total Paid:</span>
-                      <span className="font-bold text-gradient">${calculateTotal()}</span>
+                      <span className="font-bold text-gradient">₹{calculateTotal()}</span>
                     </div>
                   </div>
                 </div>

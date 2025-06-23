@@ -172,11 +172,11 @@ export default async function ServicesPage() {
 
   const addOns = [
     { name: 'False Lashes', price: '₹25' },
-    { name: 'Airbrush Makeup', price: '$50' },
-    { name: 'Contouring & Highlighting', price: '$30' },
-    { name: 'Travel Fee (within 25 miles)', price: '$50' },
-    { name: 'Early Morning Fee (before 7 AM)', price: '$75' },
-    { name: 'Additional Touch-up Kit', price: '$40' }
+    { name: 'Airbrush Makeup', price: '₹50' },
+    { name: 'Contouring & Highlighting', price: '₹30' },
+    { name: 'Travel Fee (within 25 miles)', price: '₹50' },
+    { name: 'Early Morning Fee (before 7 AM)', price: '₹75' },
+    { name: 'Additional Touch-up Kit', price: '₹40' }
   ];
 
   return (
