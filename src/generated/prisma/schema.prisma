@@ -1,0 +1,115 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String   @unique
+  firstName String
+  lastName  String
+  phone     String?
+  address   String?
+  city      String?
+  state     String?
+  zip       String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  bookings Booking[]
+  reviews  Review[]
+}
+
+model Service {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  description String
+  price       Float
+  duration    String
+  category    String
+  includes    String[]
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  bookings Booking[]
+}
+
+model Booking {
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
+  userId          String        @db.ObjectId
+  serviceId       String        @db.ObjectId
+  date            DateTime
+  time            String
+  status          BookingStatus @default(PENDING)
+  totalAmount     Float
+  addOns          String[]
+  eventType       String?
+  venue           String?
+  guestCount      String?
+  specialRequests String?
+  paymentStatus   PaymentStatus @default(PENDING)
+  paymentIntentId String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  user    User    @relation(fields: [userId], references: [id])
+  service Service @relation(fields: [serviceId], references: [id])
+}
+
+model Review {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  rating    Int
+  comment   String
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Portfolio {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String?
+  imageUrl    String
+  category    String
+  featured    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ContactSubmission {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String
+  phone     String?
+  subject   String
+  message   String
+  status    String   @default("new")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
