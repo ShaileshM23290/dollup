@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
+import connectDB from '@/lib/mongodb';
+import Contact from '@/models/Contact';
 
 export async function POST(request: NextRequest) {
   try {
+    await connectDB();
+    
     const body = await request.json();
     const { name, email, phone, subject, message } = body;
 
@@ -15,20 +18,18 @@ export async function POST(request: NextRequest) {
     }
 
     // Create contact inquiry
-    const inquiry = await prisma.contactInquiry.create({
-      data: {
-        name,
-        email,
-        phone,
-        subject,
-        message,
-        status: 'NEW'
-      }
+    const inquiry = await Contact.create({
+      name,
+      email,
+      phone,
+      subject: subject || 'General Inquiry',
+      message,
+      status: 'NEW'
     });
 
     return NextResponse.json({ 
       message: 'Contact inquiry submitted successfully',
-      inquiryId: inquiry.id 
+      inquiryId: inquiry._id 
     });
 
   } catch (error) {

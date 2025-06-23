@@ -6,9 +6,6 @@ import {
   Calendar, 
   Clock, 
   User, 
-  Mail, 
-  Phone, 
-  MapPin, 
   CreditCard, 
   CheckCircle, 
   ArrowRight, 
@@ -19,9 +16,7 @@ import {
   Gift,
   Users,
   Palette,
-  Info,
-  Star,
-  Heart
+  Info
 } from 'lucide-react';
 
 export default function BookPage() {
@@ -32,7 +27,7 @@ export default function BookPage() {
     time: '',
     duration: '',
     price: '',
-    addOns: [],
+    addOns: [] as string[],
     clientInfo: {
       firstName: '',
       lastName: '',
@@ -130,7 +125,7 @@ export default function BookPage() {
     '4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM'
   ];
 
-  const handleServiceSelect = (service: any) => {
+  const handleServiceSelect = (service: { id: string; price: number; duration: string }) => {
     setBookingData(prev => ({
       ...prev,
       service: service.id,
@@ -139,7 +134,7 @@ export default function BookPage() {
     }));
   };
 
-  const handleAddOnToggle = (addOn: any) => {
+  const handleAddOnToggle = (addOn: { id: string; name: string; price: number }) => {
     setBookingData(prev => ({
       ...prev,
       addOns: prev.addOns.includes(addOn.id)
@@ -232,7 +227,7 @@ export default function BookPage() {
               Book Your <span className="text-gradient">Session</span>
             </h1>
             <p className="text-xl text-[#6b6b6b] max-w-3xl mx-auto">
-              Ready to look absolutely stunning? Let's create the perfect look for your special occasion.
+              Ready to look absolutely stunning? Let&apos;s create the perfect look for your special occasion.
             </p>
           </div>
 

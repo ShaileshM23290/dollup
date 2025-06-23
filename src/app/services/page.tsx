@@ -10,7 +10,6 @@ import {
   Clock, 
   CheckCircle, 
   ArrowRight,
-  Star,
   Heart,
   Palette,
   Award
@@ -338,7 +337,7 @@ export default function ServicesPage() {
           </h2>
           
           <p className="text-xl mb-12 max-w-3xl mx-auto opacity-90">
-            Let's create the perfect look for your special occasion. Book your consultation today!
+            Let&apos;s create the perfect look for your special occasion. Book your consultation today!
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

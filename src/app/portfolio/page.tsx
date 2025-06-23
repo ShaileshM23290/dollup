@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { 
-  Filter, 
   Grid, 
   List, 
   Heart, 
@@ -358,7 +357,7 @@ export default function PortfolioPage() {
           </h2>
           
           <p className="text-xl mb-12 max-w-3xl mx-auto opacity-90">
-            Ready to create your own stunning look? Book a consultation and let's bring your vision to life.
+            Ready to create your own stunning look? Book a consultation and let&apos;s bring your vision to life.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

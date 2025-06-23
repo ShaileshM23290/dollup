@@ -1,8 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
+import connectDB from '@/lib/mongodb';
+import User from '@/models/User';
+import Booking from '@/models/Booking';
 
 export async function POST(request: NextRequest) {
   try {
+    await connectDB();
+    
     const body = await request.json();
     const {
       firstName,
@@ -30,42 +34,36 @@ export async function POST(request: NextRequest) {
     }
 
     // Create user if doesn't exist
-    let user = await prisma.user.findUnique({
-      where: { email }
-    });
+    let user = await User.findOne({ email });
 
     if (!user) {
-      user = await prisma.user.create({
-        data: {
-          email,
-          firstName,
-          lastName,
-          phone
-        }
+      user = await User.create({
+        email,
+        firstName,
+        lastName,
+        phone
       });
     }
 
     // Create booking
-    const booking = await prisma.booking.create({
-      data: {
-        userId: user.id,
-        eventDate: new Date(eventDate),
-        eventTime,
-        serviceType,
-        eventType,
-        location,
-        numberOfPeople: parseInt(numberOfPeople) || 1,
-        additionalServices: additionalServices || [],
-        specialRequests,
-        howDidYouHear,
-        budget: budget ? parseFloat(budget) : null,
-        status: 'PENDING'
-      }
+    const booking = await Booking.create({
+      userId: user._id,
+      eventDate: new Date(eventDate),
+      eventTime,
+      serviceType,
+      eventType,
+      location,
+      numberOfPeople: parseInt(numberOfPeople) || 1,
+      additionalServices: additionalServices || [],
+      specialRequests,
+      howDidYouHear,
+      budget: budget ? parseFloat(budget) : null,
+      status: 'PENDING'
     });
 
     return NextResponse.json({ 
       message: 'Booking created successfully',
-      bookingId: booking.id 
+      bookingId: booking._id 
     });
 
   } catch (error) {
@@ -79,6 +77,8 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
+    await connectDB();
+    
     const { searchParams } = new URL(request.url);
     const email = searchParams.get('email');
 
@@ -89,14 +89,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const user = await prisma.user.findUnique({
-      where: { email },
-      include: {
-        bookings: {
-          orderBy: { createdAt: 'desc' }
-        }
-      }
-    });
+    const user = await User.findOne({ email });
 
     if (!user) {
       return NextResponse.json(
@@ -105,7 +98,10 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    return NextResponse.json({ bookings: user.bookings });
+    const bookings = await Booking.find({ userId: user._id })
+      .sort({ createdAt: -1 });
+
+    return NextResponse.json({ bookings });
 
   } catch (error) {
     console.error('Get bookings error:', error);

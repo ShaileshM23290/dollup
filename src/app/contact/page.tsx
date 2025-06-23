@@ -10,13 +10,9 @@ import {
   Send, 
   MessageCircle, 
   Instagram, 
-  Facebook, 
-  Twitter,
   CheckCircle,
-  ArrowRight,
   Calendar,
   Heart,
-  Star,
   HelpCircle
 } from 'lucide-react';
 
@@ -502,7 +498,7 @@ export default function ContactPage() {
           </h2>
           
           <p className="text-xl mb-12 max-w-3xl mx-auto opacity-90">
-            Your perfect look is just a conversation away. Let's discuss your vision and create something beautiful together.
+            Your perfect look is just a conversation away. Let&apos;s discuss your vision and create something beautiful together.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

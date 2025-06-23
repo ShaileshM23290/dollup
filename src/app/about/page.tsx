@@ -7,7 +7,6 @@ import {
   Users, 
   Heart, 
   Star, 
-  CheckCircle, 
   ArrowRight,
   Sparkles,
   Camera,
@@ -113,7 +112,7 @@ export default function AboutPage() {
               </h1>
               
               <p className="text-xl text-[#404040] mb-8 leading-relaxed">
-                Hi, I'm the creative force behind Dollup! With over 5 years of experience in professional makeup artistry, 
+                Hi, I&apos;m the creative force behind Dollup! With over 5 years of experience in professional makeup artistry, 
                 I specialize in creating stunning looks that enhance your natural beauty and boost your confidence.
               </p>
 
@@ -166,12 +165,12 @@ export default function AboutPage() {
               
               <p>
                 My approach to makeup is rooted in the belief that beauty is personal and unique to each individual. 
-                I don't believe in one-size-fits-all solutions. Instead, I take the time to understand your style, preferences, 
+                I don&apos;t believe in one-size-fits-all solutions. Instead, I take the time to understand your style, preferences, 
                 and the occasion to create a look that's authentically you.
               </p>
               
               <p>
-                When I'm not behind the makeup brush, you can find me staying current with the latest beauty trends, 
+                When I&apos;m not behind the makeup brush, you can find me staying current with the latest beauty trends, 
                 experimenting with new techniques, or teaching makeup workshops to aspiring artists. 
                 I believe in giving back to the community that has given me so much.
               </p>
@@ -345,7 +344,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-8">
-                Let's Create Something Beautiful Together
+                Let&apos;s Create Something Beautiful Together
               </h2>
               
               <p className="text-xl mb-8 opacity-90 leading-relaxed">
