@@ -48,13 +48,13 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center mb-6">
-              <div className="relative p-3 rounded-2xl bg-gradient-elegant shadow-elegant">
+              <div className="relative ">
                 <Image
                   src="/logo.png"
                   alt="Dollup Logo"
                   width={50}
                   height={50}
-                  className="h-10 w-auto object-contain"
+                  className="h-10 w-auto object-contain rounded-lg"
                 />
               </div>
               <div className="ml-4">

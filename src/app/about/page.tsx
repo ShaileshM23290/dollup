@@ -1,6 +1,6 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
+import { getAboutImages } from '@/lib/images';
 import { 
   Award, 
   Clock, 
@@ -18,7 +18,8 @@ import {
   Calendar
 } from 'lucide-react';
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const aboutImages = await getAboutImages();
   const achievements = [
     { icon: Award, title: 'Licensed Professional', description: 'Certified makeup artist with state licensing' },
     { icon: Clock, title: '5+ Years Experience', description: 'Over 500 successful makeup applications' },
@@ -134,7 +135,14 @@ export default function AboutPage() {
             </div>
             
             <div className="relative">
-              <div className="aspect-[3/4] bg-gradient-elegant rounded-3xl shadow-elegant"></div>
+              <div className="aspect-[3/4] rounded-3xl shadow-elegant overflow-hidden relative">
+                <Image
+                  src={aboutImages.artist.url}
+                  alt={aboutImages.artist.alt}
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-primary rounded-2xl flex items-center justify-center">
                 <Palette className="h-12 w-12 text-white" />
               </div>

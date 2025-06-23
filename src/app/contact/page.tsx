@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   Phone, 
   Mail, 
@@ -429,13 +430,13 @@ export default function ContactPage() {
               <div className="card-elegant">
                 <h3 className="text-2xl font-semibold mb-6 text-[#2c2c2c]">Quick Actions</h3>
                 
-                <div className="space-y-4">
+                <div className="flex items-center justify-between space-x-3">
                   <Link href="/book" className="btn-primary w-full text-center">
                     Book Appointment
                   </Link>
                   
                   <Link href="/services" className="btn-secondary w-full text-center">
-                    View Services & Pricing
+                    Services & Pricing
                   </Link>
                   
                   <Link href="/portfolio" className="btn-secondary w-full text-center">

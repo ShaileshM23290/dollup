@@ -1,6 +1,6 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
+import { getServiceImages } from '@/lib/images';
 import { 
   Crown, 
   Camera, 
@@ -15,15 +15,17 @@ import {
   Award
 } from 'lucide-react';
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const serviceImages = await getServiceImages();
   const services = [
     {
       id: 'bridal',
+      serviceType: 'bridal',
       icon: Crown,
       title: 'Bridal Makeup',
       subtitle: 'Your Perfect Wedding Day Look',
       description: 'Create the wedding look of your dreams with our comprehensive bridal makeup services. From the initial consultation to your special day, we ensure you look absolutely radiant.',
-      price: 'Starting at₹350',
+      price: 'Starting at ₹350',
       duration: '3-4 hours',
       includes: [
         'Pre-wedding consultation',
@@ -39,15 +41,15 @@ export default function ServicesPage() {
         'Trial session 4-6 weeks before wedding',
         'Final adjustments and product selection',
         'Wedding day application at your venue'
-      ],
-      image: '/services/bridal.jpg'
+      ]
     },
     {
       id: 'photoshoot',
+      serviceType: 'editorial',
       icon: Camera,
       title: 'Photoshoot Makeup',
       subtitle: 'Camera-Ready Perfection',
-      description: 'Professional makeup designed specifically for photography and videography. Whether it\'s for headshots, fashion shoots, or special projects, we create looks that translate beautifully on camera.',
+      description: 'Professional makeup designed specifically for photography and videography. Whether it&apos;s for headshots, fashion shoots, or special projects, we create looks that translate beautifully on camera.',
       price: 'Starting at ₹200',
       duration: '2-3 hours',
       includes: [
@@ -64,11 +66,11 @@ export default function ServicesPage() {
         'Prepare skin for camera',
         'Apply HD makeup techniques',
         'Provide touch-ups during shoot'
-      ],
-      image: '/services/photoshoot.jpg'
+      ]
     },
     {
       id: 'events',
+      serviceType: 'party',
       icon: Sparkles,
       title: 'Special Events',
       subtitle: 'Glamorous Looks for Every Occasion',
@@ -89,11 +91,11 @@ export default function ServicesPage() {
         'Choose appropriate makeup style',
         'Professional application',
         'Final touches and setting'
-      ],
-      image: '/services/events.jpg'
+      ]
     },
     {
       id: 'lessons',
+      serviceType: 'natural',
       icon: Gift,
       title: 'Makeup Lessons',
       subtitle: 'Learn Professional Techniques',
@@ -114,11 +116,11 @@ export default function ServicesPage() {
         'Demonstrate techniques step-by-step',
         'Hands-on practice session',
         'Provide personalized tips and guide'
-      ],
-      image: '/services/lessons.jpg'
+      ]
     },
     {
       id: 'group',
+      serviceType: 'party',
       icon: Users,
       title: 'Group Bookings',
       subtitle: 'Perfect for Parties & Events',
@@ -139,16 +141,16 @@ export default function ServicesPage() {
         'Coordinate individual looks',
         'Set up mobile makeup station',
         'Apply makeup for each person'
-      ],
-      image: '/services/group.jpg'
+      ]
     },
     {
       id: 'consultation',
+      serviceType: 'natural',
       icon: Palette,
       title: 'Color Consultation',
       subtitle: 'Discover Your Perfect Palette',
       description: 'Find the colors that enhance your natural beauty with our comprehensive color analysis and consultation service.',
-      price: 'Starting at₹80',
+      price: 'Starting at ₹80',
       duration: '1 hour',
       includes: [
         'Skin tone analysis',
@@ -164,8 +166,7 @@ export default function ServicesPage() {
         'Test various color families',
         'Create personalized palette',
         'Provide recommendations and guide'
-      ],
-      image: '/services/consultation.jpg'
+      ]
     }
   ];
 
@@ -264,9 +265,23 @@ export default function ServicesPage() {
                     </Link>
                   </div>
                   
-                  {/* Image Placeholder */}
+                  {/* Service Image */}
                   <div className={`${!isEven ? 'lg:col-start-1' : ''}`}>
-                    <div className="aspect-[4/3] bg-gradient-elegant rounded-3xl shadow-elegant"></div>
+                    <div className="aspect-[4/3] rounded-3xl shadow-elegant overflow-hidden relative">
+                      {(() => {
+                        const serviceImage = serviceImages.find(img => img.serviceType === service.serviceType);
+                        return serviceImage ? (
+                          <Image
+                            src={serviceImage.url}
+                            alt={serviceImage.alt}
+                            fill
+                            className="object-cover"
+                          />
+                        ) : (
+                          <div className="aspect-[4/3] bg-gradient-elegant rounded-3xl"></div>
+                        );
+                      })()}
+                    </div>
                   </div>
                 </div>
               );

@@ -1,7 +1,6 @@
-"use client";
-
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { getPortfolioImages, getTestimonialImages } from '@/lib/images';
 import { 
   Sparkles, 
   Heart, 
@@ -13,12 +12,14 @@ import {
   Gift,
   Phone,
   Calendar,
-  Play,
-  Quote
+  Play
 } from 'lucide-react';
+import TestimonialCarousel from './components/TestimonialCarousel';
 
-export default function HomePage() {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+export default async function HomePage() {
+  // Fetch all images
+  const portfolioImages = await getPortfolioImages();
+  const testimonialImages = await getTestimonialImages();
 
   const services = [
     {
@@ -75,21 +76,8 @@ export default function HomePage() {
     }
   ];
 
-  const portfolioImages = [
-    { src: '/portfolio1.jpg', alt: 'Bridal makeup look', category: 'Bridal' },
-    { src: '/portfolio2.jpg', alt: 'Glamour makeup', category: 'Glamour' },
-    { src: '/portfolio3.jpg', alt: 'Natural makeup', category: 'Natural' },
-    { src: '/portfolio4.jpg', alt: 'Editorial makeup', category: 'Editorial' },
-    { src: '/portfolio5.jpg', alt: 'Special event makeup', category: 'Events' },
-    { src: '/portfolio6.jpg', alt: 'Photoshoot makeup', category: 'Photoshoot' }
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [testimonials.length]);
+  // Get first 6 portfolio images for preview
+  const portfolioPreview = portfolioImages.slice(0, 6);
 
   return (
     <div className="min-h-screen">
@@ -223,9 +211,16 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {portfolioImages.map((image, index) => (
+            {portfolioPreview.map((image, index) => (
               <div key={index} className="relative group overflow-hidden rounded-2xl shadow-elegant hover:shadow-elegant-hover transition-all duration-300">
-                <div className="aspect-square bg-gradient-elegant"></div>
+                <div className="aspect-square relative">
+                  <Image
+                    src={image.url}
+                    alt={image.alt}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="font-semibold">{image.category}</div>
@@ -244,46 +239,11 @@ export default function HomePage() {
               Client <span className="text-gradient">Love</span>
             </h2>
             <p className="text-xl text-[#404040] max-w-3xl mx-auto">
-              Don't just take our word for it. Here's what our amazing clients have to say about their experience.
+              Don&apos;t just take our word for it. Here&apos;s what our amazing clients have to say about their experience.
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="card-elegant text-center">
-              <Quote className="h-12 w-12 text-[#a8956b] mx-auto mb-8" />
-              
-              <p className="text-xl md:text-2xl text-[#4e4528] mb-8 leading-relaxed italic">
-                &ldquo;{testimonials[currentTestimonial].content}&rdquo;
-              </p>
-              
-              <div className="flex items-center justify-center space-x-1 mb-6">
-                {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-[#a8956b] fill-current" />
-                ))}
-              </div>
-              
-              <div className="flex items-center justify-center space-x-4">
-                <div className="w-16 h-16 bg-gradient-elegant rounded-full"></div>
-                <div className="text-left">
-                  <div className="font-semibold text-[#4e4528]">{testimonials[currentTestimonial].name}</div>
-                  <div className="text-[#404040]">{testimonials[currentTestimonial].role}</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Testimonial Indicators */}
-            <div className="flex justify-center space-x-2 mt-8">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentTestimonial ? 'bg-[#a8956b]' : 'bg-[#e8dcc6]'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
+          <TestimonialCarousel testimonials={testimonials} testimonialImages={testimonialImages} />
         </div>
       </section>
 
@@ -297,7 +257,7 @@ export default function HomePage() {
           </h2>
           
           <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto opacity-90">
-            Book your makeup session today and let us create a look that's uniquely you. 
+            Book your makeup session today and let us create a look that&apos;s uniquely you. 
             Your beauty transformation awaits!
           </p>
 
