@@ -152,30 +152,30 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-[url('/contact-pattern.svg')] opacity-5"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 text-[#2c2c2c]">
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 text-[#4e4528]">
             Get In <span className="text-gradient">Touch</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-[#6b6b6b] mb-12 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-[#404040] mb-12 max-w-4xl mx-auto leading-relaxed">
             Ready to create your perfect look? We'd love to hear from you! 
             Reach out for consultations, bookings, or any questions about our services.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <Phone className="h-12 w-12 text-[#d4a574] mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2 text-[#2c2c2c]">Quick Response</h3>
-              <p className="text-[#6b6b6b]">We respond to all inquiries within 24 hours</p>
+              <Phone className="h-12 w-12 text-[#c4ad8a] mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-2 text-[#4e4528]">Quick Response</h3>
+              <p className="text-[#404040]">We respond to all inquiries within 24 hours</p>
             </div>
             <div className="text-center">
-              <Calendar className="h-12 w-12 text-[#d4a574] mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2 text-[#2c2c2c]">Flexible Scheduling</h3>
-              <p className="text-[#6b6b6b]">Available 7 days a week to fit your needs</p>
+              <Calendar className="h-12 w-12 text-[#c4ad8a] mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-2 text-[#4e4528]">Flexible Scheduling</h3>
+              <p className="text-[#404040]">Available 7 days a week to fit your needs</p>
             </div>
             <div className="text-center">
-              <Heart className="h-12 w-12 text-[#d4a574] mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2 text-[#2c2c2c]">Personal Service</h3>
-              <p className="text-[#6b6b6b]">Every consultation is tailored to you</p>
+              <Heart className="h-12 w-12 text-[#c4ad8a] mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-2 text-[#4e4528]">Personal Service</h3>
+              <p className="text-[#404040]">Every consultation is tailored to you</p>
             </div>
           </div>
         </div>

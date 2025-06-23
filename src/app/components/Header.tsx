@@ -28,10 +28,10 @@ export default function Header() {
   return (
     <>
       {/* Top Bar */}
-      <div className="bg-gradient-elegant border-b border-[#e8d5b7]/30">
+      <div className="bg-gradient-elegant border-b border-[#e8dcc6]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-2 text-sm">
-            <div className="hidden md:flex items-center space-x-6 text-[#6b6b6b]">
+            <div className="hidden md:flex items-center space-x-6 text-[#404040]">
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4" />
                 <span>+1 (555) 123-4567</span>
@@ -45,7 +45,7 @@ export default function Header() {
                 <span>Mon-Sat: 9AM-7PM</span>
               </div>
             </div>
-            <div className="text-[#6b6b6b] text-xs md:text-sm">
+            <div className="text-[#404040] text-xs md:text-sm">
               ✨ Book your dream look today - Limited slots available!
             </div>
           </div>
@@ -56,7 +56,7 @@ export default function Header() {
       <header 
         className={`sticky top-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-white/95 backdrop-blur-md shadow-elegant border-b border-[#e8d5b7]/20' 
+            ? 'bg-white/95 backdrop-blur-md shadow-elegant border-b border-[#e8dcc6]/20' 
             : 'bg-white/80 backdrop-blur-sm'
         }`}
       >
@@ -82,7 +82,7 @@ export default function Header() {
                 </div>
                 <div className="ml-4 hidden sm:block">
                   <div className="text-2xl font-bold text-gradient">DOLLUP</div>
-                  <div className="text-xs font-medium tracking-[0.15em] text-[#6b6b6b] uppercase">
+                  <div className="text-xs font-medium tracking-[0.15em] text-[#404040] uppercase">
                     Makeup Artistry
                   </div>
                 </div>
@@ -95,7 +95,7 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="relative text-[#2c2c2c] font-medium hover:text-[#d4a574] transition-colors duration-300 group"
+                  className="relative text-[#4e4528] font-medium hover:text-[#a8956b] transition-colors duration-300 group"
                 >
                   {item.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary group-hover:w-full transition-all duration-300"></span>
@@ -130,20 +130,20 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-[#e8d5b7]/20 shadow-elegant">
+          <div className="lg:hidden bg-white border-t border-[#e8dcc6]/20 shadow-elegant">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
               <nav className="space-y-4">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="block text-[#2c2c2c] font-medium hover:text-[#d4a574] transition-colors duration-300 py-2"
+                    className="block text-[#4e4528] font-medium hover:text-[#a8956b] transition-colors duration-300 py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
                   </Link>
                 ))}
-                <div className="pt-4 border-t border-[#e8d5b7]/20">
+                <div className="pt-4 border-t border-[#e8dcc6]/20">
                   <Link
                     href="/book"
                     className="block btn-primary text-center"

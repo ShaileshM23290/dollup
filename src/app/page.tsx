@@ -96,18 +96,18 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#faf7f2] via-[#f4e4d1] to-[#e8d5b7]"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#faf9f7] via-[#f5f1ea] to-[#e8dcc6]"></div>
         <div className="absolute inset-0 bg-[url('/hero-pattern.svg')] opacity-5"></div>
         
         {/* Floating Elements */}
         <div className="absolute top-20 left-10 float">
-          <Sparkles className="h-8 w-8 text-[#d4a574] opacity-60" />
+          <Sparkles className="h-8 w-8 text-[#a8956b] opacity-60" />
         </div>
         <div className="absolute top-40 right-20 float" style={{ animationDelay: '2s' }}>
-          <Heart className="h-6 w-6 text-[#c19660] opacity-40" />
+          <Heart className="h-6 w-6 text-[#4e4528] opacity-40" />
         </div>
         <div className="absolute bottom-40 left-20 float" style={{ animationDelay: '4s' }}>
-          <Star className="h-10 w-10 text-[#d4a574] opacity-30" />
+          <Star className="h-10 w-10 text-[#a8956b] opacity-30" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -115,10 +115,10 @@ export default function HomePage() {
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
               <span className="text-gradient">Transform</span>
               <br />
-              <span className="text-[#2c2c2c]">Your Beauty</span>
+              <span className="text-[#4e4528]">Your Beauty</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-[#6b6b6b] mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-[#404040] mb-12 max-w-3xl mx-auto leading-relaxed">
               Professional makeup artistry for your most important moments. 
               From bridal elegance to editorial glamour, we create looks that capture your unique beauty.
             </p>
@@ -139,20 +139,20 @@ export default function HomePage() {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">500+</div>
-                <div className="text-[#6b6b6b] font-medium">Happy Clients</div>
+                <div className="text-3xl md:text-4xl font-bold text-[#4e4528] mb-2">500+</div>
+                <div className="text-[#404040] font-medium">Happy Clients</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">5+</div>
-                <div className="text-[#6b6b6b] font-medium">Years Experience</div>
+                <div className="text-3xl md:text-4xl font-bold text-[#4e4528] mb-2">5+</div>
+                <div className="text-[#404040] font-medium">Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">100+</div>
-                <div className="text-[#6b6b6b] font-medium">Weddings</div>
+                <div className="text-3xl md:text-4xl font-bold text-[#4e4528] mb-2">100+</div>
+                <div className="text-[#404040] font-medium">Weddings</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">24/7</div>
-                <div className="text-[#6b6b6b] font-medium">Support</div>
+                <div className="text-3xl md:text-4xl font-bold text-[#4e4528] mb-2">24/7</div>
+                <div className="text-[#404040] font-medium">Support</div>
               </div>
             </div>
           </div>
@@ -163,10 +163,10 @@ export default function HomePage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 text-[#2c2c2c]">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 text-[#2a2a2a]">
               Our <span className="text-gradient">Services</span>
             </h2>
-            <p className="text-xl text-[#6b6b6b] max-w-3xl mx-auto">
+            <p className="text-xl text-[#404040] max-w-3xl mx-auto">
               Discover our range of professional makeup services, each tailored to enhance your natural beauty and confidence.
             </p>
           </div>
@@ -181,15 +181,15 @@ export default function HomePage() {
                       <Icon className="h-8 w-8 text-[#2c2c2c] group-hover:text-white transition-colors duration-300" />
                     </div>
                     
-                    <h3 className="text-xl font-semibold mb-4 text-[#2c2c2c]">{service.title}</h3>
-                    <p className="text-[#6b6b6b] mb-6 leading-relaxed">{service.description}</p>
+                    <h3 className="text-xl font-semibold mb-4 text-[#4e4528]">{service.title}</h3>
+                    <p className="text-[#404040] mb-6 leading-relaxed">{service.description}</p>
                     
-                    <div className="text-2xl font-bold text-gradient mb-6">{service.price}</div>
+                    <div className="text-2xl font-bold text-[#4e4528] mb-6">{service.price}</div>
                     
                     <ul className="space-y-2 mb-8">
                       {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center text-sm text-[#6b6b6b]">
-                          <CheckCircle className="h-4 w-4 text-[#d4a574] mr-2 flex-shrink-0" />
+                        <li key={idx} className="flex items-center text-sm text-[#404040]">
+                          <CheckCircle className="h-4 w-4 text-[#a8956b] mr-2 flex-shrink-0" />
                           {feature}
                         </li>
                       ))}
@@ -210,10 +210,10 @@ export default function HomePage() {
       <section className="py-24 bg-gradient-soft">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 text-[#2c2c2c]">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 text-[#4e4528]">
               Our <span className="text-gradient">Portfolio</span>
             </h2>
-            <p className="text-xl text-[#6b6b6b] max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-[#404040] max-w-3xl mx-auto mb-8">
               Explore our stunning collection of makeup artistry showcasing diverse styles and techniques.
             </p>
             <Link href="/portfolio" className="btn-secondary inline-flex items-center space-x-2">
@@ -240,33 +240,33 @@ export default function HomePage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 text-[#2c2c2c]">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 text-[#4e4528]">
               Client <span className="text-gradient">Love</span>
             </h2>
-            <p className="text-xl text-[#6b6b6b] max-w-3xl mx-auto">
+            <p className="text-xl text-[#404040] max-w-3xl mx-auto">
               Don't just take our word for it. Here's what our amazing clients have to say about their experience.
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="card-elegant text-center">
-              <Quote className="h-12 w-12 text-[#d4a574] mx-auto mb-8" />
+              <Quote className="h-12 w-12 text-[#a8956b] mx-auto mb-8" />
               
-              <p className="text-xl md:text-2xl text-[#2c2c2c] mb-8 leading-relaxed italic">
+              <p className="text-xl md:text-2xl text-[#4e4528] mb-8 leading-relaxed italic">
                 &ldquo;{testimonials[currentTestimonial].content}&rdquo;
               </p>
               
               <div className="flex items-center justify-center space-x-1 mb-6">
                 {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-[#d4a574] fill-current" />
+                  <Star key={i} className="h-5 w-5 text-[#a8956b] fill-current" />
                 ))}
               </div>
               
               <div className="flex items-center justify-center space-x-4">
                 <div className="w-16 h-16 bg-gradient-elegant rounded-full"></div>
                 <div className="text-left">
-                  <div className="font-semibold text-[#2c2c2c]">{testimonials[currentTestimonial].name}</div>
-                  <div className="text-[#6b6b6b]">{testimonials[currentTestimonial].role}</div>
+                  <div className="font-semibold text-[#4e4528]">{testimonials[currentTestimonial].name}</div>
+                  <div className="text-[#404040]">{testimonials[currentTestimonial].role}</div>
                 </div>
               </div>
             </div>
@@ -278,7 +278,7 @@ export default function HomePage() {
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentTestimonial ? 'bg-[#d4a574]' : 'bg-[#e8d5b7]'
+                    index === currentTestimonial ? 'bg-[#a8956b]' : 'bg-[#e8dcc6]'
                   }`}
                 />
               ))}
@@ -302,18 +302,18 @@ export default function HomePage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <Link href="/book" className="bg-white text-[#2c2c2c] hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:transform hover:scale-105 inline-flex items-center space-x-2">
+            <Link href="/book" className="bg-white text-[#4e4528] hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:transform hover:scale-105 inline-flex items-center space-x-2">
               <Calendar className="h-5 w-5" />
               <span>Book Your Session</span>
             </Link>
             
-            <Link href="/contact" className="border-2 border-white text-white hover:bg-white hover:text-[#2c2c2c] px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 inline-flex items-center space-x-2">
+            <Link href="/contact" className="border-2 border-white text-white hover:bg-white hover:text-[#4e4528] px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 inline-flex items-center space-x-2">
               <Phone className="h-5 w-5" />
               <span>Call Us Now</span>
             </Link>
           </div>
 
-          <div className="text-center opacity-75 text-[#2c2c2c] font-bold">
+          <div className="text-center opacity-90 text-white font-bold">
             <p className="text-lg mb-2"> Special Offer: 15% off your first booking!</p>
             <p className="text-sm">Use code: FIRST15 | Valid until end of month</p>
           </div>

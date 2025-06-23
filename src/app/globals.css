@@ -1,26 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  /* Brand Colors - Matching DOLLUP Logo */
-  --cream: #faf7f2;
-  --warm-beige: #f4e4d1;
-  --golden-beige: #e8d5b7;
-  --rich-brown: #d4a574;
-  --deep-brown: #c19660;
-  --charcoal: #2c2c2c;
-  --soft-gray: #6b6b6b;
+  /* Brand Colors - Sophisticated Beige & Black */
+  --cream: #faf9f7;
+  --light-beige: #e4c99a;
+  --warm-beige: #dbba7b;
+  --medium-beige: #a58b57;
+  --deep-beige: #806e4a;
+  --charcoal-black: #423f2c;
+  --soft-black: #2e2e2e;
+  --dark-gray: #404040;
+  --medium-gray: #6b6b6b;
   --light-gray: #f8f8f8;
   --white: #ffffff;
   
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, var(--rich-brown) 0%, var(--deep-brown) 100%);
-  --gradient-soft: linear-gradient(135deg, var(--cream) 0%, var(--warm-beige) 100%);
-  --gradient-elegant: linear-gradient(135deg, var(--warm-beige) 0%, var(--golden-beige) 100%);
+  --gradient-primary: linear-gradient(135deg, var(--charcoal-black) 0%, var(--soft-black) 100%);
+  --gradient-soft: linear-gradient(135deg, var(--cream) 0%, var(--light-beige) 100%);
+  --gradient-elegant: linear-gradient(135deg, var(--light-beige) 0%, var(--warm-beige) 100%);
+  --gradient-beige: linear-gradient(135deg, var(--warm-beige) 0%, var(--medium-beige) 100%);
   
   /* Shadows */
-  --shadow-soft: 0 4px 20px rgba(212, 165, 116, 0.15);
-  --shadow-medium: 0 8px 30px rgba(212, 165, 116, 0.2);
-  --shadow-strong: 0 15px 40px rgba(212, 165, 116, 0.25);
+  --shadow-soft: 0 4px 20px rgba(26, 26, 26, 0.08);
+  --shadow-medium: 0 8px 30px rgba(26, 26, 26, 0.12);
+  --shadow-strong: 0 15px 40px rgba(26, 26, 26, 0.16);
 }
 
 /* Typography */
@@ -29,7 +32,7 @@
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background: var(--cream);
-  color: var(--charcoal);
+  color: var(--charcoal-black);
   line-height: 1.6;
   font-feature-settings: "rlig" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
@@ -41,7 +44,7 @@ body {
   font-family: 'Playfair Display', serif;
   font-weight: 600;
   line-height: 1.2;
-  color: var(--charcoal);
+  color: var(--charcoal-black);
 } */
 
 /* Custom Scrollbar */
@@ -54,12 +57,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--rich-brown);
+  background: var(--charcoal-black);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--deep-brown);
+  background: var(--soft-black);
 }
 
 /* Smooth scrolling */
@@ -69,19 +72,19 @@ html {
 
 /* Focus styles */
 *:focus-visible {
-  outline: 2px solid var(--rich-brown);
+  outline: 2px solid var(--charcoal-black);
   outline-offset: 2px;
 }
 
 /* Selection styles */
 ::selection {
   background-color: var(--warm-beige);
-  color: var(--charcoal);
+  color: var(--charcoal-black);
 }
 
 /* Custom utility classes */
 .text-gradient {
-  background: var(--gradient-primary);
+  background: var(--gradient-beige);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -97,6 +100,10 @@ html {
 
 .bg-gradient-elegant {
   background: var(--gradient-elegant);
+}
+
+.bg-gradient-beige {
+  background: var(--gradient-beige);
 }
 
 .shadow-elegant {
@@ -121,12 +128,13 @@ html {
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-medium);
+  background: linear-gradient(135deg, var(--soft-black) 0%, var(--charcoal-black) 100%);
 }
 
 .btn-secondary {
   background: transparent;
-  color: var(--charcoal);
-  border: 2px solid var(--charcoal);
+  color: var(--charcoal-black);
+  border: 2px solid var(--charcoal-black);
   padding: 1rem 2rem;
   border-radius: 50px;
   font-weight: 600;
@@ -134,7 +142,7 @@ html {
 }
 
 .btn-secondary:hover {
-  background: var(--charcoal);
+  background: var(--charcoal-black);
   color: var(--white);
   transform: translateY(-2px);
 }
@@ -146,7 +154,7 @@ html {
   padding: 2rem;
   box-shadow: var(--shadow-soft);
   transition: all 0.3s ease;
-  border: 1px solid rgba(212, 165, 116, 0.1);
+  border: 1px solid rgba(212, 195, 160, 0.1);
 }
 
 .card-elegant:hover {

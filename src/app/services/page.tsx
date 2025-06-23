@@ -186,18 +186,18 @@ export default function ServicesPage() {
         <div className="absolute inset-0 bg-[url('/services-pattern.svg')] opacity-5"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 text-[#2c2c2c]">
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 text-[#4e4528]">
             Our <span className="text-gradient">Services</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-[#6b6b6b] mb-12 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-[#404040] mb-12 max-w-4xl mx-auto leading-relaxed">
             Professional makeup artistry services tailored to enhance your natural beauty 
             and make you feel confident for every occasion.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <Award className="h-12 w-12 text-[#d4a574] mx-auto mb-4" />
+              <Award className="h-12 w-12 text-[#a8956b] mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2 text-[#2c2c2c]">Licensed Professional</h3>
               <p className="text-[#6b6b6b]">Certified makeup artist with years of experience</p>
             </div>

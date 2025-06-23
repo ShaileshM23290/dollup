@@ -108,23 +108,23 @@ export default function AboutPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-8 text-[#2c2c2c]">
+              <h1 className="text-5xl md:text-6xl font-bold mb-8 text-[#4e4528]">
                 Meet Your <span className="text-gradient">Artist</span>
               </h1>
               
-              <p className="text-xl text-[#6b6b6b] mb-8 leading-relaxed">
+              <p className="text-xl text-[#404040] mb-8 leading-relaxed">
                 Hi, I'm the creative force behind Dollup! With over 5 years of experience in professional makeup artistry, 
                 I specialize in creating stunning looks that enhance your natural beauty and boost your confidence.
               </p>
 
               <div className="grid grid-cols-2 gap-6 mb-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gradient mb-2">500+</div>
-                  <div className="text-[#6b6b6b] font-medium">Happy Clients</div>
+                  <div className="text-3xl font-bold text-[#4e4528] mb-2">500+</div>
+                  <div className="text-[#404040] font-medium">Happy Clients</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gradient mb-2">5+</div>
-                  <div className="text-[#6b6b6b] font-medium">Years Experience</div>
+                  <div className="text-3xl font-bold text-[#4e4528] mb-2">5+</div>
+                  <div className="text-[#404040] font-medium">Years Experience</div>
                 </div>
               </div>
 

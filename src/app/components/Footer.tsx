@@ -79,11 +79,11 @@ export default function Footer() {
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service}>
-                  <Link 
-                    href="/services" 
-                    className="text-gray-300 hover:text-[#d4a574] transition-colors duration-300 flex items-center group"
-                  >
-                    <span className="w-2 h-2 bg-[#d4a574] rounded-full mr-3 opacity-60 group-hover:opacity-100 transition-opacity duration-300"></span>
+                                      <Link 
+                      href="/services" 
+                      className="text-gray-300 hover:text-[#a8956b] transition-colors duration-300 flex items-center group"
+                    >
+                      <span className="w-2 h-2 bg-[#a8956b] rounded-full mr-3 opacity-60 group-hover:opacity-100 transition-opacity duration-300"></span>
                     {service}
                   </Link>
                 </li>
@@ -99,9 +99,9 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link 
                     href={link.href} 
-                    className="text-gray-300 hover:text-[#d4a574] transition-colors duration-300 flex items-center group"
+                    className="text-gray-300 hover:text-[#a8956b] transition-colors duration-300 flex items-center group"
                   >
-                    <span className="w-2 h-2 bg-[#d4a574] rounded-full mr-3 opacity-60 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <span className="w-2 h-2 bg-[#a8956b] rounded-full mr-3 opacity-60 group-hover:opacity-100 transition-opacity duration-300"></span>
                     {link.name}
                   </Link>
                 </li>
@@ -114,7 +114,7 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-6 text-white">Get In Touch</h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <Phone className="h-5 w-5 text-[#d4a574] mt-0.5 flex-shrink-0" />
+                <Phone className="h-5 w-5 text-[#a8956b] mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300">+1 (555) 123-4567</p>
                   <p className="text-sm text-gray-400">Call or Text</p>
@@ -122,7 +122,7 @@ export default function Footer() {
               </div>
               
               <div className="flex items-start space-x-3">
-                <Mail className="h-5 w-5 text-[#d4a574] mt-0.5 flex-shrink-0" />
+                <Mail className="h-5 w-5 text-[#a8956b] mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300">hello@dollup.com</p>
                   <p className="text-sm text-gray-400">Email Us</p>
@@ -130,7 +130,7 @@ export default function Footer() {
               </div>
               
               <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-[#d4a574] mt-0.5 flex-shrink-0" />
+                <MapPin className="h-5 w-5 text-[#a8956b] mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300">India, IN</p>
                   <p className="text-sm text-gray-400">Service Area</p>
@@ -138,7 +138,7 @@ export default function Footer() {
               </div>
               
               <div className="flex items-start space-x-3">
-                <Clock className="h-5 w-5 text-[#d4a574] mt-0.5 flex-shrink-0" />
+                <Clock className="h-5 w-5 text-[#a8956b] mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300">Mon-Sat: 9AM-7PM</p>
                   <p className="text-sm text-gray-400">Sunday: By Appointment</p>
@@ -159,7 +159,7 @@ export default function Footer() {
                       className="p-3 rounded-xl bg-gradient-elegant hover:bg-gradient-primary transition-all duration-300 group"
                       aria-label={social.name}
                     >
-                      <Icon className="h-5 w-5 text-[#2c2c2c] group-hover:text-white transition-colors duration-300" />
+                      <Icon className="h-5 w-5 text-[#4e4528] group-hover:text-white transition-colors duration-300" />
                     </Link>
                   );
                 })}
@@ -178,17 +178,17 @@ export default function Footer() {
             </div>
             
             <div className="flex items-center space-x-6 text-sm">
-              <Link href="/privacy" className="text-gray-400 hover:text-[#d4a574] transition-colors duration-300">
+              <Link href="/privacy" className="text-gray-400 hover:text-[#a8956b] transition-colors duration-300">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-[#d4a574] transition-colors duration-300">
+              <Link href="/terms" className="text-gray-400 hover:text-[#a8956b] transition-colors duration-300">
                 Terms of Service
               </Link>
             </div>
             
             <div className="flex items-center space-x-2 text-gray-400 text-sm">
               <span>Made with</span>
-              <Heart className="h-4 w-4 text-[#d4a574]" />
+              <Heart className="h-4 w-4 text-[#a8956b]" />
               <span>in India</span>
             </div>
           </div>
