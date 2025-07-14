@@ -23,8 +23,8 @@ export async function GET(request: NextRequest) {
     // Verify token
     let decoded;
     try {
-      decoded = jwt.verify(token, process.env.JWT_SECRET!) as any;
-    } catch (error) {
+      decoded = jwt.verify(token, process.env.JWT_SECRET!) as { customerId: string };
+    } catch {
       return NextResponse.json(
         { error: 'Invalid token' },
         { status: 401 }
@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
     const offset = parseInt(searchParams.get('offset') || '0');
 
     // Build query
-    const query: any = { userId: decoded.userId };
+    const query: Record<string, unknown> = { userId: decoded.customerId };
     if (status && status !== 'all') {
       query.status = status;
     }
@@ -55,7 +55,7 @@ export async function GET(request: NextRequest) {
 
     // Calculate summary stats
     const stats = await Payment.aggregate([
-      { $match: { userId: decoded.userId } },
+              { $match: { userId: decoded.customerId } },
       {
         $group: {
           _id: null,
@@ -122,8 +122,8 @@ export async function POST(request: NextRequest) {
     // Verify token
     let decoded;
     try {
-      decoded = jwt.verify(token, process.env.JWT_SECRET!) as any;
-    } catch (error) {
+      decoded = jwt.verify(token, process.env.JWT_SECRET!) as { customerId: string };
+    } catch {
       return NextResponse.json(
         { error: 'Invalid token' },
         { status: 401 }
@@ -150,7 +150,7 @@ export async function POST(request: NextRequest) {
 
     // Create payment record
     const payment = await Payment.create({
-      userId: decoded.userId,
+      userId: decoded.customerId,
       bookingId,
       amount,
       paymentMethod,

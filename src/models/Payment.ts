@@ -13,7 +13,7 @@ export interface IPayment extends Document {
   failureReason?: string;
   refundId?: string;
   refundAmount?: number;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -35,8 +35,7 @@ const PaymentSchema = new Schema<IPayment>({
     unique: true
   },
   razorpayPaymentId: {
-    type: String,
-    sparse: true
+    type: String
   },
   razorpaySignature: {
     type: String
@@ -77,8 +76,8 @@ const PaymentSchema = new Schema<IPayment>({
 // Index for efficient queries
 PaymentSchema.index({ bookingId: 1 });
 PaymentSchema.index({ customerId: 1 });
-PaymentSchema.index({ razorpayOrderId: 1 });
-PaymentSchema.index({ razorpayPaymentId: 1 });
+// razorpayOrderId already has unique index from schema definition
+PaymentSchema.index({ razorpayPaymentId: 1 }, { sparse: true });
 PaymentSchema.index({ status: 1 });
 
 export default mongoose.models.Payment || mongoose.model<IPayment>('Payment', PaymentSchema); 

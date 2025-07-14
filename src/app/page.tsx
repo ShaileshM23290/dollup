@@ -20,7 +20,7 @@ interface PortfolioItem {
   imageUrl: string;
   category: string;
   description?: string;
-  isFeatured: boolean;
+  featured: boolean;
 }
 
 interface Service {
@@ -45,7 +45,7 @@ export default function HomePage() {
         const portfolioResponse = await fetch('/api/portfolio');
         if (portfolioResponse.ok) {
           const portfolioData = await portfolioResponse.json();
-          setPortfolioItems(portfolioData.portfolio.filter((item: PortfolioItem) => item.isFeatured).slice(0, 6));
+          setPortfolioItems(portfolioData.portfolio.filter((item: PortfolioItem) => item.featured).slice(0, 6));
         }
 
         // Fetch services

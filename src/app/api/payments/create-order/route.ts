@@ -75,7 +75,7 @@ export async function POST(request: NextRequest) {
 
     const orderResult = await createPaymentOrder(orderData);
 
-    if (!orderResult.success) {
+    if (!orderResult.success || !orderResult.order) {
       return NextResponse.json(
         { error: orderResult.error || 'Failed to create payment order' },
         { status: 500 }

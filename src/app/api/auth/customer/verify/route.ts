@@ -23,8 +23,8 @@ export async function GET(request: NextRequest) {
     // Verify token
     let decoded;
     try {
-      decoded = jwt.verify(token, process.env.JWT_SECRET!) as any;
-    } catch (error) {
+      decoded = jwt.verify(token, process.env.JWT_SECRET!) as { customerId: string };
+    } catch {
       return NextResponse.json(
         { error: 'Invalid token' },
         { status: 401 }
@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Find user by ID
-    const user = await User.findById(decoded.userId);
+    const user = await User.findById(decoded.customerId);
     
     if (!user) {
       return NextResponse.json(
