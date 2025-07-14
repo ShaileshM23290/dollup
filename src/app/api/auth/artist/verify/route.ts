@@ -23,8 +23,8 @@ export async function GET(request: NextRequest) {
     // Verify token
     let decoded;
     try {
-      decoded = jwt.verify(token, process.env.JWT_SECRET!) as any;
-    } catch (error) {
+      decoded = jwt.verify(token, process.env.JWT_SECRET!) as { artistId: string };
+    } catch {
       return NextResponse.json(
         { error: 'Invalid token' },
         { status: 401 }

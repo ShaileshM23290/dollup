@@ -5,19 +5,14 @@ import AdminLayout from '../components/AdminLayout';
 import { 
   Users, 
   Search, 
-  Filter,
   Eye, 
   Mail, 
   Phone, 
   Calendar, 
   DollarSign,
-  MessageSquare,
   ChevronLeft,
   ChevronRight,
-  X,
-  User,
-  MapPin,
-  Clock
+  X
 } from 'lucide-react';
 
 interface Client {
@@ -107,8 +102,10 @@ export default function AdminClients() {
 
       if (sortBy.includes('.')) {
         const keys = sortBy.split('.');
-        aValue = keys.reduce((obj, key) => obj?.[key], a);
-        bValue = keys.reduce((obj, key) => obj?.[key], b);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        aValue = keys.reduce((obj: Record<string, any>, key: string) => obj?.[key], a as Record<string, any>);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        bValue = keys.reduce((obj: Record<string, any>, key: string) => obj?.[key], b as Record<string, any>);
       } else {
         aValue = a[sortBy as keyof Client];
         bValue = b[sortBy as keyof Client];

@@ -1,10 +1,21 @@
 import Razorpay from 'razorpay';
+import crypto from 'crypto';
 
-// Initialize Razorpay instance
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID || '',
-  key_secret: process.env.RAZORPAY_KEY_SECRET || '',
-});
+// Lazy initialize Razorpay instance
+let razorpay: Razorpay | null = null;
+
+function getRazorpayInstance(): Razorpay {
+  if (!razorpay) {
+    if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
+      throw new Error('Razorpay configuration is missing. Please set RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET environment variables.');
+    }
+    razorpay = new Razorpay({
+      key_id: process.env.RAZORPAY_KEY_ID,
+      key_secret: process.env.RAZORPAY_KEY_SECRET,
+    });
+  }
+  return razorpay;
+}
 
 export interface PaymentOrderData {
   amount: number; // in paise (multiply by 100)
@@ -21,7 +32,8 @@ export interface PaymentVerificationData {
 
 export async function createPaymentOrder(orderData: PaymentOrderData) {
   try {
-    const order = await razorpay.orders.create({
+    const razorpayInstance = getRazorpayInstance();
+    const order = await razorpayInstance.orders.create({
       amount: orderData.amount,
       currency: orderData.currency,
       receipt: orderData.receipt,
@@ -43,7 +55,6 @@ export async function createPaymentOrder(orderData: PaymentOrderData) {
 
 export function verifyPaymentSignature(verificationData: PaymentVerificationData): boolean {
   try {
-    const crypto = require('crypto');
     const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = verificationData;
 
     const body = razorpay_order_id + '|' + razorpay_payment_id;
@@ -61,7 +72,8 @@ export function verifyPaymentSignature(verificationData: PaymentVerificationData
 
 export async function fetchPaymentDetails(paymentId: string) {
   try {
-    const payment = await razorpay.payments.fetch(paymentId);
+    const razorpayInstance = getRazorpayInstance();
+    const payment = await razorpayInstance.payments.fetch(paymentId);
     return {
       success: true,
       payment,
@@ -77,7 +89,8 @@ export async function fetchPaymentDetails(paymentId: string) {
 
 export async function refundPayment(paymentId: string, amount?: number) {
   try {
-    const refund = await razorpay.payments.refund(paymentId, {
+    const razorpayInstance = getRazorpayInstance();
+    const refund = await razorpayInstance.payments.refund(paymentId, {
       amount: amount, // If amount is not provided, full refund
     });
 
@@ -94,4 +107,4 @@ export async function refundPayment(paymentId: string, amount?: number) {
   }
 }
 
-export default razorpay; 
+export default getRazorpayInstance; 

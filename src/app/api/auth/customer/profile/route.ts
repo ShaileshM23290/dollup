@@ -36,7 +36,7 @@ export async function PUT(request: NextRequest) {
 
     // Update user profile
     const updatedUser = await User.findByIdAndUpdate(
-      decoded.userId,
+      decoded.customerId,
       {
         firstName: firstName.trim(),
         lastName: lastName.trim(),
