@@ -1,24 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dollup - Professional Makeup Artist Website
+
+A complete makeup artist business website with a comprehensive admin management system.
+
+## Features
+
+- **Client Website**: Portfolio showcase, service listings, booking system, contact forms
+- **Admin Panel**: Complete business management with dashboard, bookings, messages, portfolio, and analytics
+- **Database**: MongoDB with Mongoose ODM for data persistence
+- **Authentication**: Secure admin authentication with JWT tokens
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js 18+ 
+- MongoDB (local or cloud)
 
+### Installation
+
+1. **Clone and install dependencies:**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd dollup
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Set up environment variables:**
+Create a `.env.local` file with:
+```env
+MONGODB_URI=mongodb://localhost:27017/dollup
+JWT_SECRET=your-jwt-secret-key
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Seed the database:**
+```bash
+npm run seed
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **Start the development server:**
+```bash
+npm run dev
+```
+
+5. **Access the website:**
+- **Client Website**: [http://localhost:3000](http://localhost:3000)
+- **Admin Panel**: [http://localhost:3000/admin/login](http://localhost:3000/admin/login)
+  - Email: `admin@dollup.com`
+  - Password: `dollup123`
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run seed` - Seed database with sample data
+
+## Admin System
+
+The admin system provides complete business management capabilities:
+
+- **Dashboard**: Overview statistics and recent activity
+- **Bookings**: Manage client appointments and status
+- **Messages**: Handle contact form submissions
+- **Portfolio**: Dynamic portfolio management
+- **Services**: Service offerings and pricing
+- **Analytics**: Business insights and trends
+
+For detailed admin documentation, see [ADMIN_SETUP.md](./ADMIN_SETUP.md).
 
 ## Learn More
 

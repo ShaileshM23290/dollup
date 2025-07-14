@@ -6,7 +6,8 @@ export interface IContact extends Document {
   phone?: string;
   subject: string;
   message: string;
-  status: 'NEW' | 'READ' | 'REPLIED';
+  status: 'unread' | 'read' | 'replied';
+  adminNotes?: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -39,8 +40,12 @@ const ContactSchema = new Schema<IContact>({
   },
   status: {
     type: String,
-    enum: ['NEW', 'READ', 'REPLIED'],
-    default: 'NEW'
+    enum: ['unread', 'read', 'replied'],
+    default: 'unread'
+  },
+  adminNotes: {
+    type: String,
+    default: ''
   }
 }, {
   timestamps: true

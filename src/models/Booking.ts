@@ -1,69 +1,76 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
 export interface IBooking extends Document {
-  userId: mongoose.Types.ObjectId;
-  eventDate: Date;
-  eventTime?: string;
-  serviceType: string;
-  eventType?: string;
-  location?: string;
-  numberOfPeople: number;
-  additionalServices: string[];
-  specialRequests?: string;
-  howDidYouHear?: string;
-  budget?: number;
-  status: 'PENDING' | 'CONFIRMED' | 'CANCELLED' | 'COMPLETED';
+  customerName: string;
+  customerEmail: string;
+  customerPhone: string;
+  service: string;
+  date: string;
+  time: string;
+  status: 'pending' | 'confirmed' | 'completed' | 'cancelled';
+  paymentStatus: 'pending' | 'paid' | 'failed' | 'refunded';
+  amount?: number;
+  notes?: string;
   createdAt: Date;
   updatedAt: Date;
 }
 
 const BookingSchema = new Schema<IBooking>({
-  userId: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+  customerName: {
+    type: String,
+    required: true,
+    trim: true
   },
-  eventDate: {
-    type: Date,
-    required: true
+  customerEmail: {
+    type: String,
+    required: true,
+    lowercase: true,
+    trim: true
   },
-  eventTime: {
-    type: String
+  customerPhone: {
+    type: String,
+    required: true,
+    trim: true
   },
-  serviceType: {
+  service: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  date: {
     type: String,
     required: true
   },
-  eventType: {
-    type: String
-  },
-  location: {
-    type: String
-  },
-  numberOfPeople: {
-    type: Number,
-    default: 1
-  },
-  additionalServices: [{
-    type: String
-  }],
-  specialRequests: {
-    type: String
-  },
-  howDidYouHear: {
-    type: String
-  },
-  budget: {
-    type: Number
+  time: {
+    type: String,
+    required: true
   },
   status: {
     type: String,
-    enum: ['PENDING', 'CONFIRMED', 'CANCELLED', 'COMPLETED'],
-    default: 'PENDING'
+    enum: ['pending', 'confirmed', 'completed', 'cancelled'],
+    default: 'pending'
+  },
+  paymentStatus: {
+    type: String,
+    enum: ['pending', 'paid', 'failed', 'refunded'],
+    default: 'pending'
+  },
+  amount: {
+    type: Number,
+    min: 0
+  },
+  notes: {
+    type: String,
+    trim: true
   }
 }, {
   timestamps: true
 });
 
-// Prevent re-compilation during development
+// Index for efficient queries
+BookingSchema.index({ customerEmail: 1 });
+BookingSchema.index({ date: 1 });
+BookingSchema.index({ status: 1 });
+BookingSchema.index({ paymentStatus: 1 });
+
 export default mongoose.models.Booking || mongoose.model<IBooking>('Booking', BookingSchema); 

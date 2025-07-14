@@ -1,0 +1,164 @@
+﻿Software Requirements Specification 
+Makeup Artist Website - Dollup 
+ Version 1.0  Date: 22 April 2025  SRS-DOL-2023 
+Table of Contents 
+ 1. Introduction 
+1.1 Purpose 
+1.2 Scope 
+1.3 Intended Audience 
+ 2. Overall Description 
+2.1 Product Perspective 
+2.2 Product Functions 
+2.3 User Classes and Characteristics 
+2.4 Operating Environment 
+2.5 Design and Implementation Constraints 
+ 3. Functional Requirements 
+3.1 Customer Panel 
+3.2 Makeup Artist Panel 
+3.3 Admin Panel 
+ 4. Non-Functional Requirements 
+4.1 Performance 
+4.2 Security 
+4.3 Usability 
+4.4 Maintainability 
+ 5. External Interfaces 
+5.1 User Interfaces 
+5.2 Hardware Interfaces 
+5.3 Software Interfaces 
+ 6. Time and Cost Estimate 
+ 7. Hosting & Recurring Costs 
+1. Introduction 
+1.1 Purpose 
+This document defines the software requirements for a website that allows a makeup artist to showcase services, manage clients, and handle administrative tasks. It includes modules for customers (clients) to book appointments, the makeup artist, and an admin panel for overall control. 
+1.2 Scope 
+The system is a responsive web-based application with the following features: 
+Portfolio and service listings. 
+Appointment booking and scheduling. 
+User (Customer) registration and profile. 
+Makeup artist registration and profile. 
+Admin dashboard to manage content, bookings, and users. 
+Payment integration. 
+1.3 Intended Audience 
+Makeup Artist 
+Customers 
+Website Administrator 
+2. Overall Description 
+2.1 Product Perspective 
+The system is an independent web application hosted online, with access via desktop and mobile browsers. 2.2 Product Functions 
+User Type 
+	Functions
+	Customer Panel
+	Browse services and portfolio. 
+Register/Login. 
+Book appointments. 
+View bookings and transaction history. 
+Chat Bot integration - User can chat with admin
+	Makeup Artist Panel
+	Manage profile and service offerings. 
+View and manage appointments. 
+Respond to customer queries.
+	Admin Panel
+	Manage users (customers and Artists). 
+Manage services, bookings, and payments. 
+Generate reports.
+	
+
+
+
+2.3 User Classes and Characteristics 
+ Guest Users 
+Can view basic info, services, and portfolio. 
+ Makeup Artist 
+Has extended access to manage services and schedules. 
+2.4 Operating Environment 
+ Backend 
+Web application hosted on servers. 
+PHP / Node.js / framework if needed 
+MySQL / MongoDB database 
+2.5 Design and Implementation Constraints 
+Key Constraints 
+Mobile responsive design. 
+Secure user authentication (OAuth, JWT). 
+GDPR-compliant data handling. 
+3. Functional Requirements 3.1 Customer Panel 
+FR1 User registration and login/logout. 
+FR2 Browse makeup artist's portfolio. 
+FR3 View and select services. 
+FR4 Book appointments with date/time selection. FR5 Payment integration (Razorpay, Payumoney). FR6 View past and upcoming bookings. 
+FR7 Contact artist or support. 
+3.2 Makeup Artist Panel 
+FR8 Login/logout. 
+FR9 Manage profile and bio. 
+FR10 Add/edit/remove services and prices. FR11 View/manage appointments. 
+FR12 Respond to messages and inquiries. FR13 View earnings summary. 
+3.3 Admin Panel 
+FR14 Secure login/logout. 
+FR15 Manage user accounts (customers, artist). FR16 Approve/reject artist updates or services. 
+ Registered Customers 
+Can book appointments, make online payments and manage profiles. 
+ Admin 
+Full control over the system content and users. 
+ Frontend 
+HTML5, CSS3 
+JavaScript 
+Tailwind CSS (React) 
+FR17 Access reports on appointments, payments, and site usage. FR18 Send announcements or emails. 
+4. Non-Functional Requirements 
+ 4.1 Performance 
+Load pages in <2 seconds on average. 
+Handle concurrent bookings (at least 100 users simultaneously). 
+ 4.3 Usability 
+Intuitive, visually appealing UI. 
+Mobile-friendly design. 
+Accessibility (WCAG 2.1 Level AA). 
+5. External Interfaces 
+5.1 User Interfaces 
+ 
+ 
+ 4.2 Security 
+Use HTTPS. 
+Password hashing (bcrypt). 
+Role-based access control. 
+ 4.4 Maintainability 
+Modular code structure. 
+Easy database schema updates. 
+Admin dashboard for content updates.  
+Homepage 
+With navigation and key sections 5.2 Hardware Interfaces 
+Login/Registration User authentication screens 
+Dashboards 
+Role-specific control panels 
+None beyond standard client devices (PC, mobile). 
+5.3 Software Interfaces 
+Payment gateway (e.g., Razorpay). 
+Calendar integration. 
+6. Time and Cost Estimate 
+ Development Details 
+Tech stack: PHP, MySQL, HTML/CSS, JS 
+Team: 2 Developers + 1 Designer 
+7. Hosting & Recurring Costs (Estimates)
+ Timeline & Budget 
+Total Time Estimate: 2 to 3 months Total Cost Estimate: ₹1.5 Lakhs 
+
+
+Item 
+	Cost (INR/year)
+	 Shared Hosting (basic) 
+	₹3,000 – ₹6,000
+	 Domain Name 
+	₹800 – ₹1,200
+	 SSL Certificate (basic) 
+	Free – ₹2,000
+	 Payment Gateway Fees 
+	~2% per transaction
+	
+
+
+
+This document is confidential and proprietary to Dollup Makeup Artist Website. 
+© 2025 All Rights Reserved 
+Developer Contact Information 
+Priyanka Mishra 
+ i.priyanka.m.16@gmail.com  7709616260 
+Shailesh Mishra 
+ shaileshmishra90@gmail.com  7709616270

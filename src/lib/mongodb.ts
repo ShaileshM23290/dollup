@@ -48,4 +48,6 @@ async function connectDB(): Promise<mongoose.Connection> {
   return cached!.conn;
 }
 
-export default connectDB; 
+// Export both default and named exports for compatibility
+export default connectDB;
+export const connectToDatabase = connectDB; 

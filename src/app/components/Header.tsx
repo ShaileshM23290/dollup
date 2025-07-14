@@ -69,7 +69,7 @@ export default function Header() {
                   <div className="absolute inset-0 bg-gradient-elegant rounded-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
                   <div className="relative rounded-2xl bg-white shadow-elegant group-hover:shadow-elegant-hover transition-all duration-300">
                     <Image
-                      src="/logo.png"
+                      src="/DOLLUP-LOgo-6.png"
                       alt="Dollup - Professional Makeup Artist"
                       width={120}
                       height={120}
@@ -95,7 +95,7 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="relative text-[#4e4528] font-medium hover:text-[#a8956b] transition-colors duration-300 group"
+                  className="relative text-[#2c2c2c] font-medium hover:text-[#d4a574] transition-colors duration-300 group"
                 >
                   {item.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary group-hover:w-full transition-all duration-300"></span>
@@ -107,7 +107,7 @@ export default function Header() {
             <div className="flex items-center space-x-4">
               <Link
                 href="/book"
-                className="hidden md:inline-flex btn-primary text-sm px-6 py-3"
+                className="hidden md:inline-flex bg-[#d4a574] text-white text-sm px-6 py-3 rounded-lg hover:bg-[#c4956a] transition-colors duration-300 font-medium"
               >
                 Book Now
               </Link>
@@ -137,7 +137,7 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="block text-[#4e4528] font-medium hover:text-[#a8956b] transition-colors duration-300 py-2"
+                    className="block text-[#2c2c2c] font-medium hover:text-[#d4a574] transition-colors duration-300 py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
@@ -146,7 +146,7 @@ export default function Header() {
                 <div className="pt-4 border-t border-[#e8dcc6]/20">
                   <Link
                     href="/book"
-                    className="block btn-primary text-center"
+                    className="block bg-[#d4a574] text-white px-6 py-3 rounded-lg hover:bg-[#c4956a] transition-colors duration-300 font-medium text-center"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Book Appointment
